@@ -53,3 +53,17 @@ Resources:
       Tags:
         - Key: Name
           Value: Private Subnet 2 in AZ B
+
+## Create IG and Attach to VPC
+  InternetGateway:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+        - Key: keyname
+          Value: value
+
+  InternetGatewayAttachment:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId: !Ref Task1VPC
+      InternetGatewayId: !Ref InternetGateway
